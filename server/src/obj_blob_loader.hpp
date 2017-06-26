@@ -23,7 +23,7 @@
 namespace ttobj{
 
     template <class Input, class End>
-    auto load_obj_meshes(Input i, End const& end, size_t const max_blob_size = 1024*1024) -> std::map<std::string, std::vector<char> > {
+    auto load_obj_meshes(Input i, End const& end, size_t const max_blob_size = 50*1024*1024) -> std::map<std::string, std::vector<char> > {
 
         std::map<std::string, std::vector<char> > blobs;
 
