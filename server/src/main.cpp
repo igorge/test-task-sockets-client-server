@@ -59,12 +59,12 @@ int main(int argc, char *argv[]) {
             throw ttobj::exception::socket_error( GIE_FORMAT("listen() failed: " << last_err) );
         }
 
-        sockaddr  peer_addr;
-        ttobj::socklen_t peer_add_size=sizeof(peer_addr);
-
         GIE_LOG("Waiting for clients ...");
 
         while(true){
+
+            sockaddr  peer_addr = {};
+            ttobj::socklen_t peer_add_size=sizeof(peer_addr);
 
             auto s_tmp = accept(sock, &peer_addr, &peer_add_size);
             if( !ttobj::is_socket(s_tmp) ) {
